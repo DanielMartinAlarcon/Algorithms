@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import argparse
+import argparse 
 
 def find_max_profit(prices):
   pass
