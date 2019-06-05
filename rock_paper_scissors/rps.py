@@ -3,28 +3,29 @@
 import sys
 
 def rock_paper_scissors(n):
+  
+  # Helper function that takes each item from a list, creates the three possible
+  # permutations from that seed, and adds them to another list.
   def rps(list1):
-    list2 = []
+    result = []
     for item in list1:
-      list2.append(item + ['rock'])
-      list2.append(item + ['paper'])
-      list2.append(item + ['scissors'])
-    return list2
+      result.append(item + ['rock'])
+      result.append(item + ['paper'])
+      result.append(item + ['scissors'])
+    return result
   
   starting_list = [['rock'],['paper'],['scissors']]
   
+  # Hard code base cases
   if n == 0:
     return [[]]
-  elif n == 1:
-    return starting_list
   else:
-    list1 = starting_list
-    list2 = []
+    result = starting_list
+    # Run the helper function n-1 times:
     for i in range(1, n):
-      list2 = rps(list1)
-      list1 = list2
-
-    return list2
+      result = rps(result)
+    
+    return result
 
 
 if __name__ == "__main__":
