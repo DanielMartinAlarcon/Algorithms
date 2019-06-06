@@ -2,9 +2,20 @@
 
 import sys
 
-def making_change(amount, denominations):
-  pass 
+def making_change(amount, denominations, cache=None):
 
+  if n < 0:
+    return 0
+  elif n == 0:
+    return 1
+  elif n == 1:
+    return 1
+  else: 
+    if cache[n] > 0:
+      return cache[n]
+    else:
+      cache[n] = sum([making_change(n-d) for d in denominations])
+      return cache[n]
 
 if __name__ == "__main__":
   # Test our your implementation from the command line
