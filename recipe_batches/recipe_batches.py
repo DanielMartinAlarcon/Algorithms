@@ -3,7 +3,16 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    if sorted(recipe.keys()) != sorted(ingredients.keys()):
+        return 0
+    
+    ratios = []
+    for x in recipe.keys():
+        ratios.append(ingredients[x] // recipe[x])
+    
+    return min(ratios)
+
+  
 
 
 if __name__ == '__main__':
